@@ -1,0 +1,28 @@
+# custom message -------------------------------------------
+greet() {
+echo -e "\033[1;31m$(toilet -f future -F border 'WELCOME BACK MY MASTER')\033[0m" | lolcat
+
+  arr=(
+    "All protocols are online. Shall we change the world?"
+    "The shadows are restless. Let's bring them light."
+    "It’s time to rewrite the rules."
+    "The grid is yours to control."
+    "History remembers the bold. Today, we carve our mark."
+    "Welcome to the war room. Let’s shake the matrix."
+    "The code is silent. The storm is you."
+    "Initializing stealth protocol. No trace, no mercy."
+    "Your code is a blade. Let's cut deep."
+    "You are the anomaly. Rewrite the simulation."
+  )
+
+  a=$(( RANDOM % ${#arr[@]} ))
+  echo -e "${arr[$a]}\n" | lolcat
+  todo
+}
+# custom message ends-------------------------------------------
+
+greet
+
+# copy paste the code in your ~/.zshrc and then execute "source ~/.zshrc" command 
+# change the code to your prefrence 
+

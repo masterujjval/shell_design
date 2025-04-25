@@ -1,0 +1,43 @@
+#!/bin/bash
+
+user=`echo $USER`
+
+# adding the task to list
+if [ $1 == "-a" ] 2>> /dev/null
+then
+    while [ 1 ]
+    do
+        echo -e "\e[36mTASK\e[0m: "
+	read n
+	$(echo "$n" >> /home/$user/.task.txt) # echo to display and then add
+    done
+
+elif [ $# -eq 0 ]
+then
+    i=1
+    echo -e "\e[36mTasks to do:\e[0m"
+    while read line; do
+        echo -e "\033[1;31m$i. $line\033[0m"
+        (( i++ ))
+    done < "/home/$user/.task.txt"
+    echo -e "\e[36mUse todo -h for help\e[0m\n"
+
+elif [ $1 == "-d" ]
+then
+    vim /home/$user/.task.txt
+
+elif [ $1 == "-h" ]
+then
+    echo -e "-a : To append the a task\n-d: To delete task using vim"
+    
+fi
+
+
+
+
+
+
+
+
+
+
